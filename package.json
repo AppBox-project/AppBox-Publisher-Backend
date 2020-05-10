@@ -1,0 +1,20 @@
+{
+  "name": "appbox-backend-publisher",
+  "version": "0.0.1",
+  "description": "Backend for appbox app publisher",
+  "main": "index.js",
+  "author": "Vic van Cooten",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc src/index.ts"
+  },
+  "dependencies": {
+    "mongoose": "^5.9.13",
+    "shelljs": "^0.8.4",
+    "surge": "^0.21.3"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "typescript": "^3.8.3"
+  }
+}
