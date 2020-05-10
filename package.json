@@ -6,7 +6,7 @@
   "author": "Vic van Cooten",
   "license": "MIT",
   "scripts": {
-    "start": "tsc src/index.ts"
+    "build": "tsc src/index.ts"
   },
   "dependencies": {
     "mongoose": "^5.9.13",
