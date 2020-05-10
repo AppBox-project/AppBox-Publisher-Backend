@@ -21,5 +21,5 @@ module.exports = async (args, models) => {
 
   // Publish
   shell.mkdir("-p", `/AppBox/Files/Sites/${args.siteId}`);
-  shell.mv("public/*", `/AppBox/Files/Sites/${args.siteId}`);
+  shell.mv("-v", "public/*", `/AppBox/Files/Sites/${args.siteId}/`);
 };
