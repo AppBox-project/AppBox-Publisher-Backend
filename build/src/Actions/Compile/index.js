@@ -58,7 +58,7 @@ module.exports = function (args, models) { return __awaiter(_this, void 0, void 
                 shell.exec("gatsby build");
                 // Publish
                 shell.mkdir("-p", "/AppBox/Files/Sites/" + args.siteId);
-                shell.mv("public/*", "/AppBox/Files/Sites/" + args.siteId);
+                shell.cp("-r", "public/*", "/AppBox/Files/Sites/" + args.siteId + "/");
                 return [2 /*return*/];
         }
     });
