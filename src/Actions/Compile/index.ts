@@ -16,6 +16,7 @@ module.exports = async (args, models) => {
   shell.cd(`${args.siteId}`);
 
   // Install dependencies and run the gatsby build
+  shell.exec("git pull");
   shell.exec("yarn install");
   shell.exec("gatsby build");
 
