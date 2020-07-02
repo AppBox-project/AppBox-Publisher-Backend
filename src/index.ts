@@ -1,4 +1,6 @@
 const compile = require("./Actions/Compile");
+const install = require("./Actions/Install");
+
 require("./db/Models/Objects");
 require("./db/Models/Entries");
 require("./db/Models/AppPermissions");
@@ -34,6 +36,9 @@ db.once("open", function () {
     switch (instruction.action) {
       case "publishSite":
         compile(instruction.args, models);
+        break;
+      case "installSite":
+        install(instruction.args, models);
         break;
       default:
         console.log("Unknown action");
