@@ -27,7 +27,7 @@ module.exports = async (args, models) => {
       name: args.name,
       design: args.design,
       url: args.URL,
-      site_settings: siteSettings,
+      design_settings: siteSettings,
     },
   });
   newSite.save();
