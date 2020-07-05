@@ -1,7 +1,8 @@
 var shell = require("shelljs");
+var fs = require("fs");
 
 module.exports = async (args, models) => {
-  console.log(`Compiling gatsby site based on ${args.siteId}`);
+  console.log(`Compiling site: ${args.siteId}`);
 
   // Get site metadata
   const site = await models.entries.findOne({
@@ -9,7 +10,25 @@ module.exports = async (args, models) => {
     "data.id": args.siteId,
   });
 
-  console.log(site);
+  // Get pages metadata
+  const pageModel = await models.objects.findOne({ key: "publisher-pages" });
 
-  const configData = {};
+  const configData = {
+    data: site.data.siteSettings,
+    menus: site.data.menus,
+    baseUrl: "https://appbox.vicvancooten.nl",
+    objects: { "publisher-pages": pageModel.fields },
+  };
+
+  fs.writeFile(
+    `/AppBox/Files/Sites/Source/${args.siteId}/siteData.json`,
+    JSON.stringify(configData),
+    "utf8",
+    () => {
+      console.log(
+        "Written config file",
+        `/AppBox/Files/Sites/Source/${args.siteId}/siteData.json`
+      );
+    }
+  );
 };
