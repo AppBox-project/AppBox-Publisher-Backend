@@ -28,6 +28,7 @@ module.exports = async (args, models) => {
       design: args.design,
       url: args.URL,
       design_settings: siteSettings,
+      supported_menus: contents.supportedMenus,
     },
   });
   newSite.save();
