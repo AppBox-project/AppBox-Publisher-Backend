@@ -14,11 +14,10 @@ module.exports = async (args, models) => {
       "utf8"
     )
   );
-  const site = await models.entries.findOne({ "data.id": args.id });
-  site.design_settings = contents.siteSettings;
-  site.supported_menus = contents.supportedMenus;
 
-  site.markModified("siteSettings");
-  site.markModified("supportedMenus");
+  const site = await models.entries.findOne({ "data.id": args.id });
+  site.data.design_settings = contents.siteSettings;
+  site.data.supported_menus = contents.supportedMenus;
+  site.markModified("data");
   site.save();
 };
