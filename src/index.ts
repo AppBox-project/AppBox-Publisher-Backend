@@ -1,5 +1,6 @@
 const compile = require("./Actions/Compile");
 const install = require("./Actions/Install");
+const update = require("./Actions/Update");
 
 require("./db/Models/Objects");
 require("./db/Models/Entries");
@@ -39,6 +40,9 @@ db.once("open", function () {
         break;
       case "installSite":
         install(instruction.args, models);
+        break;
+      case "updateSite":
+        update(instruction.args, models);
         break;
       default:
         console.log("Unknown action");
