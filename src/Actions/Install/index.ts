@@ -19,7 +19,6 @@ module.exports = async (args, models) => {
       "utf8"
     )
   );
-  const siteSettings = contents.siteSettings;
   const newSite = new models.entries({
     objectId: "publish-sites",
     data: {
@@ -27,7 +26,7 @@ module.exports = async (args, models) => {
       name: args.name,
       design: args.design,
       url: args.URL,
-      design_settings: siteSettings,
+      design_settings: contents.siteSettings,
       supported_menus: contents.supportedMenus,
     },
   });
