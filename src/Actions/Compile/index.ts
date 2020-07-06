@@ -29,6 +29,13 @@ module.exports = async (args, models) => {
         "Written config file",
         `/AppBox/Files/Sites/Source/${args.siteId}/siteData.json`
       );
+      shell.cd(`/AppBox/Files/Sites/Source/${args.siteId}`);
+      shell.exec("yarn install");
+      shell.exec("gatsby build");
+
+      // Publish
+      shell.mkdir("-p", `/AppBox/Files/Sites/${args.siteId}`);
+      shell.cp("-r", "public/*", `/AppBox/Files/Sites/${args.siteId}/`);
     }
   );
 };
