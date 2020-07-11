@@ -4,6 +4,7 @@ var fs = require("fs");
 module.exports = async (args, models) => {
   console.log(`Updating from source for ${args.id}.`);
   shell.cd(`/AppBox/Files/Sites/Source/${args.id}`);
+  shell.exec("git reset --hard");
   shell.exec(`git pull`);
   shell.exec(`yarn install`);
 
