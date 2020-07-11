@@ -16,7 +16,7 @@ module.exports = async (args, models) => {
   const configData = {
     data: site.data.siteSettings,
     menus: site.data.menus,
-    baseUrl: "https://appbox.vicvancooten.nl",
+    baseUrl: "http://localhost:8600",
     objects: { "publisher-pages": pageModel.fields },
   };
 
