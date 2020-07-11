@@ -29,8 +29,14 @@ module.exports = async (args, models) => {
         "Written config file",
         `/AppBox/Files/Sites/Source/${args.siteId}/siteData.json`
       );
+
       shell.cd(`/AppBox/Files/Sites/Source/${args.siteId}`);
-      shell.exec("yarn install");
+      // Todo why is this needed?
+      shell.exec("rm - rf node_modules");
+      shell.exec("rm package - lock.json");
+      shell.exec("npm cache clear--force");
+      shell.exec("npm install");
+
       shell.exec("gatsby build");
 
       // Publish
